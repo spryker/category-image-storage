@@ -14,5 +14,5 @@ interface CategoryImageStorageMapperInterface
      *
      * @return \Generated\Shared\Transfer\SynchronizationDataTransfer[]
      */
-    public function mapCategoryImageStorageTransferCollectionToSynchronizationDataTransferCollection(array $categoryImageStorageTransfers): array;
+    public function mapCategoryImageStorageTransfersCollectionToSynchronizationDataTransferCollection(array $categoryImageStorageTransfers): array;
 }
