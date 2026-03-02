@@ -104,11 +104,6 @@ class CategoryImageSynchronizationDataPlugin extends AbstractPlugin implements S
         return $this->getFactory()->getConfig()->getCategoryImageSynchronizationPoolName();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyCategoryImageStorageEntityTransfer $categoryImageStorageEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SynchronizationDataTransfer
-     */
     protected function createSynchronizationDataTransfer(
         SpyCategoryImageStorageEntityTransfer $categoryImageStorageEntityTransfer
     ): SynchronizationDataTransfer {

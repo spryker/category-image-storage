@@ -25,10 +25,6 @@ class CategoryImageStorageReader implements CategoryImageStorageReaderInterface
      */
     protected $storageClient;
 
-    /**
-     * @param \Spryker\Client\CategoryImageStorage\Dependency\CategoryImageStorageToSynchronizationServiceInterface $synchronizationService
-     * @param \Spryker\Client\CategoryImageStorage\Dependency\CategoryImageStorageToStorageClientInterface $storageClient
-     */
     public function __construct(
         CategoryImageStorageToSynchronizationServiceInterface $synchronizationService,
         CategoryImageStorageToStorageClientInterface $storageClient
@@ -37,12 +33,6 @@ class CategoryImageStorageReader implements CategoryImageStorageReaderInterface
         $this->storageClient = $storageClient;
     }
 
-    /**
-     * @param int $idCategory
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageSetCollectionStorageTransfer|null
-     */
     public function findCategoryImageStorage(int $idCategory, string $localeName): ?CategoryImageSetCollectionStorageTransfer
     {
         $key = $this->generateKey($idCategory, $localeName);
@@ -54,23 +44,12 @@ class CategoryImageStorageReader implements CategoryImageStorageReaderInterface
         return $this->mapToCategoryImageStorage($categoryImageStorageData);
     }
 
-    /**
-     * @param array $categoryImageStorageData
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageSetCollectionStorageTransfer
-     */
     protected function mapToCategoryImageStorage(array $categoryImageStorageData): CategoryImageSetCollectionStorageTransfer
     {
         return (new CategoryImageSetCollectionStorageTransfer())
             ->fromArray($categoryImageStorageData, true);
     }
 
-    /**
-     * @param int $idCategory
-     * @param string $localName
-     *
-     * @return string
-     */
     protected function generateKey(int $idCategory, string $localName): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())

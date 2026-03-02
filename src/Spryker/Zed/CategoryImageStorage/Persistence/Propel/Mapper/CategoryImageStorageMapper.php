@@ -32,12 +32,6 @@ class CategoryImageStorageMapper
         return $synchronizationDataTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\CategoryImageStorage\Persistence\SpyCategoryImageStorage $categoryImageStorageEntity
-     * @param \Generated\Shared\Transfer\SynchronizationDataTransfer $synchronizationDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\SynchronizationDataTransfer
-     */
     public function mapCategoryImageStorageEntityToSynchronizationDataTransfer(
         SpyCategoryImageStorage $categoryImageStorageEntity,
         SynchronizationDataTransfer $synchronizationDataTransfer

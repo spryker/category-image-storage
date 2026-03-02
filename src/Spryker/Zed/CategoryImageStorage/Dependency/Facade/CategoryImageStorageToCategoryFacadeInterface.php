@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CategoryCriteriaTransfer;
 
 interface CategoryImageStorageToCategoryFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CategoryCriteriaTransfer $categoryCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryCollectionTransfer
-     */
     public function getCategoryCollection(CategoryCriteriaTransfer $categoryCriteriaTransfer): CategoryCollectionTransfer;
 }

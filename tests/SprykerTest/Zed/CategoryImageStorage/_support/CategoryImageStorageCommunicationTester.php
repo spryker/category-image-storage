@@ -34,11 +34,6 @@ class CategoryImageStorageCommunicationTester extends Actor
 {
     use _generated\CategoryImageStorageCommunicationTesterActions;
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryImageSetTransfer $categoryImageSetTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryTransfer
-     */
     public function createCategoryWithImageSet(CategoryImageSetTransfer $categoryImageSetTransfer): CategoryTransfer
     {
         $categoryTransfer = $this->haveCategory();
@@ -48,11 +43,6 @@ class CategoryImageStorageCommunicationTester extends Actor
         return $categoryTransfer;
     }
 
-    /**
-     * @param int $idCategory
-     *
-     * @return array
-     */
     public function getCategoryImages(int $idCategory): array
     {
         $categoryStorage = SpyCategoryImageStorageQuery::create()->findOneByFkCategory($idCategory);
@@ -62,22 +52,12 @@ class CategoryImageStorageCommunicationTester extends Actor
         return $categoryImages;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return void
-     */
     public function deleteCategoryWithImageSet(CategoryTransfer $categoryTransfer): void
     {
         $this->getCategoryImageFacade()->deleteCategoryImageSetsByIdCategory($categoryTransfer->getIdCategory());
         $this->getCategoryFacade()->delete($categoryTransfer->getIdCategory());
     }
 
-    /**
-     * @param array $categoryImages
-     *
-     * @return void
-     */
     public function assertSortingBySortOrder(array $categoryImages): void
     {
         $sortOrderPrevious = 0;
@@ -92,11 +72,6 @@ class CategoryImageStorageCommunicationTester extends Actor
         }
     }
 
-    /**
-     * @param array $categoryImages
-     *
-     * @return void
-     */
     public function assertSortingByIdCategoryImageSetToCategoryImage(array $categoryImages): void
     {
         $idCategoryImageSetToCategoryImagePrevious = 0;
@@ -111,17 +86,11 @@ class CategoryImageStorageCommunicationTester extends Actor
         }
     }
 
-    /**
-     * @return \Spryker\Zed\CategoryImage\Business\CategoryImageFacadeInterface
-     */
     protected function getCategoryImageFacade(): CategoryImageFacadeInterface
     {
         return $this->getLocator()->categoryImage()->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\Category\Business\CategoryFacadeInterface
-     */
     protected function getCategoryFacade(): CategoryFacadeInterface
     {
         return $this->getLocator()->category()->facade();

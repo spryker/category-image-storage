@@ -82,12 +82,6 @@ class CategoryImagePublisherTriggerPlugin extends AbstractPlugin implements Publ
         return static::COL_ID_CATEGORY;
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\CategoryCriteriaTransfer
-     */
     protected function createCategoryCriteriaTransfer(int $offset, int $limit): CategoryCriteriaTransfer
     {
         $paginationTransfer = (new PaginationTransfer())->setOffset($offset)->setLimit($limit);

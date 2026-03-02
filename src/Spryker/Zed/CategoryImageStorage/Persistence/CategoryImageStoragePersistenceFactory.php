@@ -21,33 +21,21 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class CategoryImageStoragePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\CategoryImage\Persistence\SpyCategoryImageSetToCategoryImageQuery
-     */
     public function getQueryCategoryImageSetToCategoryImage(): SpyCategoryImageSetToCategoryImageQuery
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::PROPEL_QUERY_CATEGORY_IMAGE_SET_TO_CATEGORY_IMAGE);
     }
 
-    /**
-     * @return \Orm\Zed\CategoryImage\Persistence\SpyCategoryImageSetQuery
-     */
     public function getCategoryImageSetQuery(): SpyCategoryImageSetQuery
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::PROPEL_QUERY_CATEGORY_IMAGE_SET);
     }
 
-    /**
-     * @return \Orm\Zed\CategoryImageStorage\Persistence\SpyCategoryImageStorageQuery
-     */
     public function createSpyCategoryImageStorageQuery(): SpyCategoryImageStorageQuery
     {
         return SpyCategoryImageStorageQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\CategoryImageStorage\Persistence\Propel\Mapper\CategoryImageStorageMapper
-     */
     public function createCategoryImageStorageMapper(): CategoryImageStorageMapper
     {
         return new CategoryImageStorageMapper();

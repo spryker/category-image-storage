@@ -67,11 +67,6 @@ class CategoryImageStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addEventBehaviorFacade(Container $container): Container
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
@@ -83,11 +78,6 @@ class CategoryImageStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCategoryFacade(Container $container): Container
     {
         $container->set(static::FACADE_CATEGORY, function (Container $container) {
@@ -99,11 +89,6 @@ class CategoryImageStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCategoryImageSetQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_CATEGORY_IMAGE_SET, $container->factory(function () {
@@ -113,11 +98,6 @@ class CategoryImageStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCategoryImageSetToCategoryImageQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_CATEGORY_IMAGE_SET_TO_CATEGORY_IMAGE, $container->factory(function () {

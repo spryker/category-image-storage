@@ -9,17 +9,7 @@ namespace Spryker\Zed\CategoryImageStorage\Business\Storage;
 
 interface CategoryImageStorageWriterInterface
 {
-    /**
-     * @param array $categoryIds
-     *
-     * @return void
-     */
     public function publish(array $categoryIds): void;
 
-    /**
-     * @param array $categoryIds
-     *
-     * @return void
-     */
     public function unpublish(array $categoryIds): void;
 }

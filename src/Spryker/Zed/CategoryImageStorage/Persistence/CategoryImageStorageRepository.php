@@ -114,11 +114,6 @@ class CategoryImageStorageRepository extends AbstractRepository implements Categ
             ->mapCategoryImageStorageEntityCollectionToSynchronizationDataTransfers($categoryImageStorageEntityCollection);
     }
 
-    /**
-     * @param \Orm\Zed\CategoryImage\Persistence\SpyCategoryImageSetQuery $categoryImageSetToCategoryImageQuery
-     *
-     * @return \Orm\Zed\CategoryImage\Persistence\SpyCategoryImageSetQuery
-     */
     protected function sortCategoryImageSetToCategoryImageQuery(
         SpyCategoryImageSetQuery $categoryImageSetToCategoryImageQuery
     ): SpyCategoryImageSetQuery {

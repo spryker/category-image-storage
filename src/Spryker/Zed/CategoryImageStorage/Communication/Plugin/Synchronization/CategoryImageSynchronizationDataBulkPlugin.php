@@ -102,12 +102,6 @@ class CategoryImageSynchronizationDataBulkPlugin extends AbstractPlugin implemen
             ->getCategoryImageSynchronizationPoolName();
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\FilterTransfer
-     */
     protected function createFilterTransfer(int $offset, int $limit): FilterTransfer
     {
         return (new FilterTransfer())

@@ -29,10 +29,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
      */
     protected $entityManager;
 
-    /**
-     * @param \Spryker\Zed\CategoryImageStorage\Persistence\CategoryImageStorageRepositoryInterface $repository
-     * @param \Spryker\Zed\CategoryImageStorage\Persistence\CategoryImageStorageEntityManagerInterface $entityManager
-     */
     public function __construct(
         CategoryImageStorageRepositoryInterface $repository,
         CategoryImageStorageEntityManagerInterface $entityManager
@@ -41,11 +37,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
         $this->entityManager = $entityManager;
     }
 
-    /**
-     * @param array $categoryIds
-     *
-     * @return void
-     */
     public function publish(array $categoryIds): void
     {
         $imageSets = $this->getImageSetsIndexedByCategoryIdAndLocale(
@@ -56,11 +47,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
         $this->storeData($imageSets, $spyCategoryImageStorageEntities);
     }
 
-    /**
-     * @param array $categoryIds
-     *
-     * @return void
-     */
     public function unpublish(array $categoryIds): void
     {
         $spyCategoryImageStorageEntities = $this->repository->getCategoryImageStorageByFkCategoryIn($categoryIds);
@@ -111,13 +97,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
         $this->deleteStorageEntities($spyCategoryImageStorageEntities);
     }
 
-    /**
-     * @param array $spyCategoryImageStorageEntities
-     * @param int $idCategory
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\SpyCategoryImageStorageEntityTransfer
-     */
     protected function getStorageEntityTransfer(
         array $spyCategoryImageStorageEntities,
         int $idCategory,
@@ -168,11 +147,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
         return $categoryImageSetStorageTransferCollection;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyCategoryImageSetEntityTransfer $spyCategoryImageSetTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageSetStorageTransfer
-     */
     protected function mapSpyCategoryImageSetEntityTransfer(SpyCategoryImageSetEntityTransfer $spyCategoryImageSetTransfer): CategoryImageSetStorageTransfer
     {
         $categoryImageSetStorageTransfer = new CategoryImageSetStorageTransfer();
@@ -201,11 +175,6 @@ class CategoryImageStorageWriter implements CategoryImageStorageWriterInterface
         return $categoryImages;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyCategoryImageEntityTransfer $spyCategoryImageTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryImageStorageTransfer
-     */
     protected function mapSpyCategoryImageEntityTransfer(SpyCategoryImageEntityTransfer $spyCategoryImageTransfer): CategoryImageStorageTransfer
     {
         return (new CategoryImageStorageTransfer())->fromArray($spyCategoryImageTransfer->toArray(), true);

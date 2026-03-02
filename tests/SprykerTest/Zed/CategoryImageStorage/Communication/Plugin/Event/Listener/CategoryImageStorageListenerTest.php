@@ -54,9 +54,6 @@ class CategoryImageStorageListenerTest extends Unit
      */
     protected $categoryImageSetTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -71,9 +68,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->setUpData();
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImagePublishStorageListenerStoreData(): void
     {
         $this->cleanupCategoryImageStorage();
@@ -89,9 +83,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->assertCategoryImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImageSetToCategoryImageStorageListenerStoreData(): void
     {
         $beforeCount = SpyCategoryImageStorageQuery::create()->count();
@@ -111,9 +102,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->assertCategoryImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImageSetStorageListenerStoreData(): void
     {
         $this->cleanupCategoryImageStorage();
@@ -131,9 +119,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->assertCategoryImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImageStorageListenerStoreData(): void
     {
         $this->cleanupCategoryImageStorage();
@@ -152,9 +137,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->assertCategoryImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImageSetStorageListenerSortsImagesBySortOrderAsc(): void
     {
         // Assign
@@ -179,9 +161,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->tester->deleteCategoryWithImageSet($categoryTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCategoryImagePublishStorageListenerSortsImagesByIdCategoryImageSetToCategoryImageAsc(): void
     {
         // Assign
@@ -206,9 +185,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->tester->deleteCategoryWithImageSet($categoryTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function _after(): void
     {
         parent::_after();
@@ -216,9 +192,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->cleanupCategoryImageStorage();
     }
 
-    /**
-     * @return void
-     */
     protected function setUpData(): void
     {
         $this->categoryTransfer = $this->tester->haveCategory();
@@ -226,11 +199,6 @@ class CategoryImageStorageListenerTest extends Unit
             ->haveCategoryImageSetForCategory($this->categoryTransfer);
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertCategoryImageStorage(int $beforeCount): void
     {
         $afterCount = SpyCategoryImageStorageQuery::create()->count();
@@ -243,11 +211,6 @@ class CategoryImageStorageListenerTest extends Unit
         $this->assertSame($this->categoryImageSetTransfer->getName(), $data['image_sets'][0]['name']);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return array
-     */
     protected function getCategoryImageSetIdsForCategory(CategoryTransfer $categoryTransfer): array
     {
         return SpyCategoryImageSetQuery::create()
@@ -257,11 +220,6 @@ class CategoryImageStorageListenerTest extends Unit
             ->getData();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return array
-     */
     protected function getIdCategoryImageCollectionForCategory(CategoryTransfer $categoryTransfer): array
     {
         return SpyCategoryImageQuery::create()
@@ -277,9 +235,6 @@ class CategoryImageStorageListenerTest extends Unit
             ->getData();
     }
 
-    /**
-     * @return void
-     */
     protected function cleanupCategoryImageStorage(): void
     {
         SpyCategoryImageStorageQuery::create()

@@ -20,17 +20,11 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class CategoryImageStorageCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\CategoryImageStorage\Dependency\Facade\CategoryImageStorageToEventBehaviorInterface
-     */
     public function getEventBehaviorFacade(): CategoryImageStorageToEventBehaviorInterface
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
 
-    /**
-     * @return \Spryker\Zed\CategoryImageStorage\Dependency\Facade\CategoryImageStorageToCategoryFacadeInterface
-     */
     public function getCategoryFacade(): CategoryImageStorageToCategoryFacadeInterface
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::FACADE_CATEGORY);

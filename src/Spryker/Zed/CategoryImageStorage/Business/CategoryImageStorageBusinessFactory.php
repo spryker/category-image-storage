@@ -18,9 +18,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class CategoryImageStorageBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\CategoryImageStorage\Business\Storage\CategoryImageStorageWriterInterface
-     */
     public function createCategoryImageStorageWriter(): CategoryImageStorageWriterInterface
     {
         return new CategoryImageStorageWriter(

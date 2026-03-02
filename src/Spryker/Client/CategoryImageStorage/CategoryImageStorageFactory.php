@@ -15,9 +15,6 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 class CategoryImageStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\CategoryImageStorage\Storage\CategoryImageStorageReaderInterface
-     */
     public function createCategoryImageStorageReader(): CategoryImageStorageReaderInterface
     {
         return new CategoryImageStorageReader(
@@ -26,17 +23,11 @@ class CategoryImageStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\CategoryImageStorage\Dependency\CategoryImageStorageToSynchronizationServiceInterface
-     */
     protected function getSynchronizationService(): CategoryImageStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\CategoryImageStorage\Dependency\CategoryImageStorageToStorageClientInterface
-     */
     protected function getStorageClient(): CategoryImageStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(CategoryImageStorageDependencyProvider::CLIENT_STORAGE);
