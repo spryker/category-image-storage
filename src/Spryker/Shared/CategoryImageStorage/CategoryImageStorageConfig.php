@@ -61,5 +61,15 @@ class CategoryImageStorageConfig extends AbstractBundleConfig
      *
      * @var string
      */
-    public const DEFAULT_IMAGE_SET_NAME = 'default';
+    public const string DEFAULT_IMAGE_SET_NAME = 'default';
+
+    /**
+     * Specification:
+     * - Queue name used for category image publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_CATEGORY_IMAGE_QUEUE = 'publish.category_image';
 }
